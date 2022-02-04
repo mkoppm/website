@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
+<meta charset="utf-8">
 <body>
 
-<p>Click the button to get your coordinates.</p>
+<p>Click the button to get your coordinates and copy them to clipboard.</p>
 
-<button onclick="getLocation()">Try It</button>
+<button onclick="getLocation()">Get Coordinates</button>
 
-<p id="demo"></p>
+<p id="geo"></p>
 
 <script>
-var x = document.getElementById("demo");
+var x = document.getElementById("geo");
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -20,8 +21,10 @@ function getLocation() {
 }
 
 function showPosition(position) {
-  x.innerHTML = "Lat,Long: " + position.coords.latitude +
-  ", " + position.coords.longitude;
+  x.innerHTML = "Lat,long: " + position.coords.latitude +
+  "," + position.coords.longitude;
+  navigator.clipboard.writeText(position.coords.latitude +
+  "," + position.coords.longitude)
 }
 
 function showError(error) {
