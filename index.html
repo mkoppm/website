@@ -1,49 +1,58 @@
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8">
-<body>
+<head>
+    <title>
+      My GPS coordinates
+    </title>
+</head>
 
-<p>Click the button to get your coordinates and copy them to clipboard.</p>
+<body style="text-align:center;" id="body">
+    <h1 style="color:green;">
+            Latitude, Longitude
+        </h1>
+    <input type='text' id='geocodes' onClick="this.select()"/>
 
-<button onclick="getLocation()">Get Coordinates</button>
+    <script type="text/javascript">
+    document.getElementById('geocodes').value = '';
+    </script>
 
-<p id="geo"></p>
+    <br>
+    <br>
+    <button onclick="getLocation()">
+        Click to get location
+    </button>
 
-<script>
-var x = document.getElementById("geo");
+    <script>
+        var latlong = document.getElementById("geocodes");
 
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition, showError);
-  } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
+        function getLocation() {
+          navigator.geolocation.getCurrentPosition(showPosition, showError, {enableHighAccuracy: true, timeout: 5000, maximumAge: 0});
+        }
 
-function showPosition(position) {
-  x.innerHTML = "Lat,long: " + position.coords.latitude +
-  "," + position.coords.longitude;
-  navigator.clipboard.writeText(position.coords.latitude +
-  "," + position.coords.longitude)
-}
+        function showPosition(position) {
+          setTimeout(function(){
+            latlong.value = position.coords.latitude + "," + position.coords.longitude;
+          }, 5000);
+        }
 
-function showError(error) {
-  switch(error.code) {
-    case error.PERMISSION_DENIED:
-      x.innerHTML = "User denied the request for Geolocation."
-      break;
-    case error.POSITION_UNAVAILABLE:
-      x.innerHTML = "Location information is unavailable."
-      break;
-    case error.TIMEOUT:
-      x.innerHTML = "The request to get user location timed out."
-      break;
-    case error.UNKNOWN_ERROR:
-      x.innerHTML = "An unknown error occurred."
-      break;
-  }
-}
-</script>
-
+        function showError(error) {
+          switch(error.code) {
+            case error.PERMISSION_DENIED:
+              x.innerHTML = "User denied the request for Geolocation."
+              break;
+            case error.POSITION_UNAVAILABLE:
+              x.innerHTML = "Location information is unavailable."
+              break;
+            case error.TIMEOUT:
+              x.innerHTML = "The request to get user location timed out."
+              break;
+            case error.UNKNOWN_ERROR:
+              x.innerHTML = "An unknown error occurred."
+              break;
+          }
+        }
+    </script>
 </body>
+
 </html>
