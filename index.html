@@ -9,9 +9,19 @@
 
 <body onload="getLocation()" style="text-align:center;" id="body">
   <h1 style="color:green;">
-    Latitude, Longitude
+    Latitude & Longitude Coordinates
   </h1>
-  <input type='text' id='geocodes' onClick="this.select()"/>
+  Allow this site to access your location and your GPS coordinates will load automatically.
+  <br><br>
+
+  <input type='text' size="30" id='geocodes' onClick="this.select()"/>
+
+  <br><br>
+
+  <button type="button" name="button" onclick="getLocation()">Update GPS Position</button>
+
+  <br><br>
+  Tap on the GPS coordinates, copy and paste to Webform.
 
   <script>
     var latlong = document.getElementById("geocodes");
