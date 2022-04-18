@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <title>
+    Effective Thickness Calculator
+  </title>
+</head>
+
+<body onload="clearFields()" style="text-align:center;" id="body">
+  <h1 style="color:green;">
+    Effective Thickness Calculator
+  </h1>
+  <img src="measure.jpg" alt="15 measurements"><br>
+  Thoroughly clean rust from surface of section and then take <b>15 measurements</b> of the metal thickness at regular spacings of about 50mm around the inside circumference.
+  <br><br>
+  Please enter measured thickness reading <b>values between 0.00 to 3.20 mm</b> (inclusive), with <b>two decimal places</b>.
+  <br><br>
+
+    <label for="m1">Measurement 01:</label>
+    <input type="text" id="m1" name="m1" size="10" title="Value between 0.00 and 3.20, always with two decimals"><br>
+    <label for="m2">Measurement 02:</label>
+    <input type="text" id="m2" name="m2" size="10" title="Value between 0.00 and 3.20, always with two decimals"><br>
+    <label for="m3">Measurement 03:</label>
+    <input type="text" id="m3" name="m3" size="10" title="Value between 0.00 and 3.20, always with two decimals"><br>
+    <label for="m4">Measurement 04:</label>
+    <input type="text" id="m4" name="m4" size="10" title="Value between 0.00 and 3.20, always with two decimals"><br>
+    <label for="m5">Measurement 05:</label>
+    <input type="text" id="m5" name="m5" size="10" title="Value between 0.00 and 3.20, always with two decimals"><br>
+    <label for="m6">Measurement 06:</label>
+    <input type="text" id="m6" name="m6" size="10" title="Value between 0.00 and 3.20, always with two decimals"><br>
+    <label for="m7">Measurement 07:</label>
+    <input type="text" id="m7" name="m7" size="10" title="Value between 0.00 and 3.20, always with two decimals"><br>
+    <label for="m8">Measurement 08:</label>
+    <input type="text" id="m8" name="m8" size="10" title="Value between 0.00 and 3.20, always with two decimals"><br>
+    <label for="m9">Measurement 09:</label>
+    <input type="text" id="m9" name="m9" size="10" title="Value between 0.00 and 3.20, always with two decimals"><br>
+    <label for="m10">Measurement 10:</label>
+    <input type="text" id="m10" name="m10" size="10" title="Value between 0.00 and 3.20, always with two decimals"><br>
+    <label for="m11">Measurement 11:</label>
+    <input type="text" id="m11" name="m11" size="10" title="Value between 0.00 and 3.20, always with two decimals"><br>
+    <label for="m12">Measurement 12:</label>
+    <input type="text" id="m12" name="m12" size="10" title="Value between 0.00 and 3.20, always with two decimals"><br>
+    <label for="m13">Measurement 13:</label>
+    <input type="text" id="m13" name="m13" size="10" title="Value between 0.00 and 3.20, always with two decimals"><br>
+    <label for="m14">Measurement 14:</label>
+    <input type="text" id="m14" name="m14" size="10" title="Value between 0.00 and 3.20, always with two decimals"><br>
+    <label for="m15">Measurement 15:</label>
+    <input type="text" id="m15" name="m15" size="10" title="Value between 0.00 and 3.20, always with two decimals"><br>
+
+    <input type="submit" value="Calculate Effective Thickness" onclick="calculateET()">
+
+  <br><br>
+
+  <i>Copy Condition Rating to DIT Audit Stage 2 Form:</i>
+  <br>
+  <input type='text' size="15" id='rating'>
+  <button onclick="copyTextRating()">Copy text</button>
+
+  <br><br>
+
+  <i>Copy 15 measurements and the Effective Thickness separated by a space to DIT Audit Stage 2 Form:</i>
+  <br>
+  <input type='text' size="70" id='measurements'>
+  <button onclick="copyTextMeasurements()">Copy text</button>
+
+  <br><br>
+
+  <button onclick="clearFields()">Clear calculator</button>
+
+  <script>
+
+    function clearFields() {
+      rating.value = "";
+      measurements.value = "";
+      m1.value = "";
+      m2.value = "";
+      m3.value = "";
+      m4.value = "";
+      m5.value = "";
+      m6.value = "";
+      m7.value = "";
+      m8.value = "";
+      m9.value = "";
+      m10.value = "";
+      m11.value = "";
+      m12.value = "";
+      m13.value = "";
+      m14.value = "";
+      m15.value = "";
+    }
+
+    function calculateET() {
+      var m1 = parseFloat(document.getElementById("m1").value);
+      if (m1 < 0 || m1 > 3.2 || document.getElementById("m1").value.length != 4) {
+        alert("Incorrect/empty Measurement 01");
+        return;
+      }
+      var m2 = parseFloat(document.getElementById("m2").value);
+      if (m2 < 0 || m2 > 3.2 || document.getElementById("m2").value.length != 4) {
+        alert("Incorrect/empty Measurement 02");
+        return;
+      }
+      var m3 = parseFloat(document.getElementById("m3").value);
+      if (m3 < 0 || m3 > 3.2 || document.getElementById("m3").value.length != 4) {
+        alert("Incorrect/empty Measurement 03");
+        return;
+      }
+      var m4 = parseFloat(document.getElementById("m4").value);
+      if (m4 < 0 || m4 > 3.2 || document.getElementById("m4").value.length != 4) {
+        alert("Incorrect/empty Measurement 04");
+        return;
+      }
+      var m5 = parseFloat(document.getElementById("m5").value);
+      if (m5 < 0 || m5 > 3.2 || document.getElementById("m5").value.length != 4) {
+        alert("Incorrect/empty Measurement 05");
+        return;
+      }
+      var m6 = parseFloat(document.getElementById("m6").value);
+      if (m6 < 0 || m6 > 3.2 || document.getElementById("m6").value.length != 4) {
+        alert("Incorrect/empty Measurement 06");
+        return;
+      }
+      var m7 = parseFloat(document.getElementById("m7").value);
+      if (m7 < 0 || m7 > 3.2 || document.getElementById("m7").value.length != 4) {
+        alert("Incorrect/empty Measurement 07");
+        return;
+      }
+      var m8 = parseFloat(document.getElementById("m8").value);
+      if (m8 < 0 || m8 > 3.2 || document.getElementById("m8").value.length != 4) {
+        alert("Incorrect/empty Measurement 08");
+        return;
+      }
+      var m9 = parseFloat(document.getElementById("m9").value);
+      if (m9 < 0 || m9 > 3.2 || document.getElementById("m9").value.length != 4) {
+        alert("Incorrect/empty Measurement 09");
+        return;
+      }
+      var m10 = parseFloat(document.getElementById("m10").value);
+      if (m10 < 0 || m10 > 3.2 || document.getElementById("m10").value.length != 4) {
+        alert("Incorrect/empty Measurement 10");
+        return;
+      }
+      var m11 = parseFloat(document.getElementById("m11").value);
+      if (m11 < 0 || m11 > 3.2 || document.getElementById("m11").value.length != 4) {
+        alert("Incorrect/empty Measurement 11");
+        return;
+      }
+      var m12 = parseFloat(document.getElementById("m12").value);
+      if (m12 < 0 || m12 > 3.2 || document.getElementById("m12").value.length != 4) {
+        alert("Incorrect/empty Measurement 12");
+        return;
+      }
+      var m13 = parseFloat(document.getElementById("m13").value);
+      if (m13 < 0 || m13 > 3.2 || document.getElementById("m13").value.length != 4) {
+        alert("Incorrect/empty Measurement 13");
+        return;
+      }
+      var m14 = parseFloat(document.getElementById("m14").value);
+      if (m14 < 0 || m14 > 3.2 || document.getElementById("m14").value.length != 4) {
+        alert("Incorrect/empty Measurement 14");
+        return;
+      }
+      var m15 = parseFloat(document.getElementById("m15").value);
+      if (m15 < 0 || m15 > 3.2 || document.getElementById("m15").value.length != 4) {
+        alert("Incorrect/empty Measurement 15");
+        return;
+      }
+      var mean = (m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + m10 + m11 + m12 + m13 + m14 + m15)/15;
+      var deviationPow2 = Math.pow(m1 - mean, 2) + Math.pow(m2 - mean, 2) + Math.pow(m3 - mean, 2) + Math.pow(m4 - mean, 2) + Math.pow(m5 - mean, 2)
+        + Math.pow(m6 - mean, 2) + Math.pow(m7 - mean, 2) + Math.pow(m8 - mean, 2) + Math.pow(m9 - mean, 2) + Math.pow(m10 - mean, 2)
+        + Math.pow(m11 - mean, 2) + Math.pow(m12 - mean, 2) + Math.pow(m13 - mean, 2) + Math.pow(m14 - mean, 2) + Math.pow(m15 - mean, 2);
+      var sd = Math.sqrt(deviationPow2/15);
+      var et = mean - 1.753 * sd;
+      var cr = "0";
+      if (et >= 2.6) {
+        cr = "3";
+      } else if (et > 2) {
+        cr = "4";
+      } else if (et >= -2) {
+        cr = "5";
+      } else {
+        alert("Incorrect/missing Measurements");
+        return;
+      }
+      rating.value = cr;
+      measurements.value = m1.toString() + " " + m2.toString() + " " + m3.toString() + " " + m4.toString() + " " + m5.toString() + " "
+        + m6.toString() + " " + m7.toString() + " " + m8.toString() + " " + m9.toString() + " " + m10.toString() + " " + m11.toString() + " "
+        + m12.toString() + " " + m13.toString() + " " + m14.toString() + " " + m15.toString() + " " + et.toString();
+    }
+
+    function copyTextMeasurements() {
+      var copyText = document.getElementById("measurements");
+      copyText.setSelectionRange(0,99999);
+      navigator.clipboard.writeText(copyText.value);
+      alert("Copied the text: " + copyText.value);
+    }
+
+    function copyTextRating() {
+      var copyText = document.getElementById("rating");
+      copyText.setSelectionRange(0,99999);
+      navigator.clipboard.writeText(copyText.value);
+      alert("Copied the text: " + copyText.value);
+    }
+  </script>
+
+</body>
+
+</html>
